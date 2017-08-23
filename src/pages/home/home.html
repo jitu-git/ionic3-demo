@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-navbar color="danger">
+    <button ion-button menuToggle>
+      <ion-icon name="menu" color="white"></ion-icon>
+    </button>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card  *ngFor="let order of orders" (click)="order_details(order.orderId)">
+
+    <ion-item>
+      <h2>{{order.product_name}}</h2>
+      <h2 class="order-no color_gray">Order No. {{order.orderId}}</h2>
+      <div class="address">
+        <p><ion-icon name="pin" class=""></ion-icon> {{order.shipping_address}}</p>
+      </div>
+    </ion-item>
+
+
+    <ion-item class="datetime_box">
+
+      <span item-left><ion-icon name="calendar"></ion-icon> {{order.booking_slot}}</span>
+      <button ion-button icon-left clear item-end>
+        <ion-icon name="navigate"></ion-icon>
+        Detail
+      </button>
+    </ion-item>
+
+  </ion-card>
+
+  <ion-grid *ngIf="!orders">
+    <ion-row>
+      <ion-col col>
+        <div color="danger" class="assertive" *ngIf="!wait">No more orders</div>
+        <div color="danger" class="assertive" *ngIf="wait">Please wait.. We are checking your orders.</div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-infinite-scroll (ionInfinite)="HomeOrders($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

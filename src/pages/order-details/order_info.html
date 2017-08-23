@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-navbar color="danger">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Order Info</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card *ngIf="orderDataAvail">
+    <ion-item>
+      <h2>{{order.product_name}}</h2>
+      <h2>Order No. {{order.orderId}}</h2>
+    </ion-item>
+
+    <ion-item class="address datetime_box color_gray no-min-height">
+      <span item-left><ion-icon name="pin"></ion-icon> {{order.shipping_address}}</span>
+    </ion-item>
+
+    <ion-item class="datetime_box color_gray no-min-height">
+      <span item-left><ion-icon  name="phone-portrait"></ion-icon> Mobile No. {{order.phone_number}}</span>
+    </ion-item>
+
+    <ion-item class="datetime_box color_gray no-min-height">
+      <span item-left><ion-icon name="calendar"></ion-icon> {{order.booking_slot}}</span>
+    </ion-item>
+    <ion-item *ngIf="order.payment_method == 'Cash On Delivery'">
+      <span item-left>Amount: {{order.orderTotal}}</span>
+    </ion-item>
+
+    <ion-item>
+      <span item-left>Payment: {{order.payment_method}}</span>
+      <button ion-button icon-left clear item-end  class="app_color" (click)="openMap({lat:order.latitude, lng: order.longitude})">
+        <ion-icon name="navigate"></ion-icon>
+        View Map
+      </button>
+    </ion-item>
+
+  </ion-card>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <div color="white" class="footer_btn" (click)="delivered(order.orderId)">Delivered</div>
+  </ion-toolbar>
+</ion-footer>

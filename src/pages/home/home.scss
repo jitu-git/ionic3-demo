@@ -1,0 +1,62 @@
+page-home {
+
+}
+$app_color:#ff622b;
+
+
+.brand{width:100px; margin:15px auto;}
+.brand img{width:100%;}
+
+
+.color_gray{
+  color:#9b9b9b;
+}
+.bg-site{
+  background-color:$app_color;
+}
+.toolbar-background-md{
+  background-color: $app_color !important;
+  color: #ffffff !important;
+}
+
+.address{
+  color: #9b9b9b !important;
+  margin-top: 6px !important;
+  .icon, p{
+    display: inline-block;
+    vertical-align: middle;
+  }
+  p{
+    white-space:normal;
+  }
+
+}
+.card-md{
+  border-top: 3px solid rgba(255, 98, 12, 0.48);
+}
+h2.order-no{
+  font-size: 14px !important;
+}
+
+.datetime_box{
+  font-size:1.3rem !important;
+  .button-clear-md{
+    color: $app_color;
+  }
+}
+.app_color{
+  color: $app_color;
+}
+
+.footer_btn{
+  font-size:1.6rem;
+  color: #FFF;
+  text-align: center;
+}
+.no-min-height{
+  min-height: auto !important;
+  span{
+    margin-top:0px !important;
+    margin-bottom:0px !important;
+  }
+}

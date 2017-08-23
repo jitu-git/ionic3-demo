@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-navbar color="danger">
+    <ion-title>Login</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row >
+      <ion-col col-12>
+        <div class="brand"><img src="assets/images/logo.png"></div>
+        <form method="post" name="loginForm" id="loginForm" (ngSubmit)="login(this)">
+
+          <ion-list>
+            <ion-item>
+              <ion-label floating>Email</ion-label>
+              <ion-input type="text" [(ngModel)]="user.useremail" name="useremail"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label floating>Password</ion-label>
+              <ion-input type="password" [(ngModel)]="user.password" name="password"></ion-input>
+            </ion-item>
+
+            <ion-item style="display: none">
+
+            </ion-item>
+          </ion-list>
+
+          <div padding>
+            <button ion-button class="bg-site" color="primary" block type="submit">Sign In</button>
+          </div>
+        </form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
